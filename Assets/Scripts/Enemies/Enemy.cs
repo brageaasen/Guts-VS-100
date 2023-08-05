@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
 
         // Disable enemy
         GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<EdgeCollider2D>().enabled = true;
+        GetComponent<CircleCollider2D>().enabled = false;
         Destroy(GetComponent<EnemyAI>());
         Destroy(GetComponent<AIPath>());
         rb.gravityScale = 3;

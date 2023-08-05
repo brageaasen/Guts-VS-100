@@ -44,10 +44,10 @@ public class PlayerCombat : MonoBehaviour
             //    animator.SetTrigger("Attack");
             //    nextAttackTime = Time.time + 1f / attackRate;
             //}
-
+            AttackUp();
             ComboAttack();
+            Debug.Log(currentCombo);
         //}
-
     }
 
     void Attack() {
@@ -63,8 +63,8 @@ public class PlayerCombat : MonoBehaviour
 
     void StartComboAttack()
     {
-        isAttacking = false;
-        if (currentCombo < 3)
+        SetIsAttacking(false);
+        if (currentCombo < 2)
         {
             currentCombo++;
         }
@@ -72,15 +72,27 @@ public class PlayerCombat : MonoBehaviour
 
     void FinishComboAttack()
     {
-        isAttacking = false;
+        SetIsAttacking(false);
         currentCombo = 0;
     }
+    
     void ComboAttack()
     {
-        if (Input.GetButtonDown("Attack") && !isAttacking)
+        if (Input.GetButtonDown("Attack") && !isAttacking && (pm.LastOnGroundTime > 0))
         {
-            isAttacking = true;
+            //Debug.Log($"Attacked Forward! Combo: {currentCombo}");
+            SetIsAttacking(true);
             animator.SetTrigger("GroundAttack" + currentCombo);
+        }
+    }
+
+    void AttackUp()
+    {
+        if (Input.GetButtonDown("Attack") && Input.GetButton("Up") && !isAttacking && (pm.LastOnGroundTime > 0))
+        {
+            //Debug.Log("Attacked Up!}");
+            SetIsAttacking(true);
+            animator.SetTrigger("GroundAttackUp");
         }
     }
 
@@ -94,5 +106,12 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void SetIsAttacking(bool state)
+    {
+        //Debug.Log($"Changed state to {state}");
+        isAttacking = state;
+        animator.SetBool("IsAttacking", state);
     }
 }

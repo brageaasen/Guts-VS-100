@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
 
         // Play hurt animation
         animator.SetTrigger("Hurt");
+        
+        playerCombat.SetIsAttacking(false);
 
         if (currentHealth <= 0)
         {

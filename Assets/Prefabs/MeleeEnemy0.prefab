@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5549480402607905617}
   healthBar: {fileID: 5549480403325465710}
-  maxHealth: 400
+  maxHealth: 40
   currentHealth: 0
   isDead: 0
   combat: {fileID: 5549480402607905618}
@@ -638,7 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee634df438770a42a4ec2dbaa53a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   activateDistance: 50
   pathUpdateSeconds: 0.3
   speed: 800

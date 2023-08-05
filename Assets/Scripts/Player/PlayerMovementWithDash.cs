@@ -17,6 +17,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	#region COMPONENTS
     public Rigidbody2D RB { get; private set; }
     public Animator animator;
+	public PlayerCombat playerCombat;
 	#endregion
 
 	#region STATE PARAMETERS
@@ -37,7 +38,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	//Jump
 	private bool _isJumpCut;
-	private bool _isJumpFalling;
+	public bool _isJumpFalling { get; private set; }
 
 	//Wall Jump
 	private float _wallJumpStartTime;
@@ -79,6 +80,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+		playerCombat = GetComponent<PlayerCombat>();
+
     }
 
 	private void Start()
@@ -212,10 +215,10 @@ public class PlayerMovementWithDash : MonoBehaviour
 			Sleep(Data.dashSleepTime); 
 
 			//If not direction pressed, dash forward
-			if (_moveInput != Vector2.zero)
-				_lastDashDir = _moveInput;
-			else
-				_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
+			//if (_moveInput != Vector2.zero)
+			//	_lastDashDir = _moveInput;
+			//else
+			_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
 
 
 
@@ -284,7 +287,7 @@ public class PlayerMovementWithDash : MonoBehaviour
     private void FixedUpdate()
 	{
 		//Handle Run
-		if (!IsDashing)
+		if (!IsDashing && CanMove())
 		{
 			if (IsWallJumping)
 				Run(Data.wallJumpRunLerp);
@@ -526,7 +529,7 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region CHECK METHODS
     public void CheckDirectionToFace(bool isMovingRight)
 	{
-		if (isMovingRight != IsFacingRight)
+		if (isMovingRight != IsFacingRight && !playerCombat.isAttacking)
 			Turn();
 	}
 
@@ -534,6 +537,12 @@ public class PlayerMovementWithDash : MonoBehaviour
     {
 		return LastOnGroundTime > 0 && !IsJumping;
     }
+
+	private bool CanMove()
+	{
+		Debug.Log(!playerCombat.isAttacking);
+		return !playerCombat.isAttacking;
+	}
 
 	private bool CanWallJump()
     {
