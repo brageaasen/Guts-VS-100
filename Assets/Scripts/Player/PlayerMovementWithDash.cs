@@ -540,7 +540,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	private bool CanMove()
 	{
-		Debug.Log(!playerCombat.isAttacking);
+		//Debug.Log(!playerCombat.isAttacking);
 		return !playerCombat.isAttacking;
 	}
 

@@ -61,6 +61,7 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
+    // Used in animation events
     void StartComboAttack()
     {
         SetIsAttacking(false);
@@ -68,8 +69,12 @@ public class PlayerCombat : MonoBehaviour
         {
             currentCombo++;
         }
+        else {
+            currentCombo = 1;
+        }
     }
 
+    // Used in animation events
     void FinishComboAttack()
     {
         SetIsAttacking(false);
