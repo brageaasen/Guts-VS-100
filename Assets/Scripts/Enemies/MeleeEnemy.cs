@@ -69,6 +69,7 @@ public class MeleeEnemy : MonoBehaviour
             new Vector3(boxCollider.bounds.size.x * rangeX, boxCollider.bounds.size.y * rangeY, boxCollider.bounds.size.z));
     }
 
+    // Used in animation event
     private void DamagePlayer()
     {
         // Damage player if in sight

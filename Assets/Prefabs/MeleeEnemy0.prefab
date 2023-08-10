@@ -601,6 +601,7 @@ MonoBehaviour:
   combat: {fileID: 5549480402607905618}
   _upperBodyPrefab: {fileID: 179698461318078684, guid: 676c0a3e0654120439b2f93f3360049e, type: 3}
   _lowerBodyPrefab: {fileID: 4950048630752147935, guid: 626de4fb8953a3d47b4f9a133d44f865, type: 3}
+  _weaponPrefab: {fileID: 179698461318078684, guid: 326d3bc9dca0d7c41a78dc6123ff43c4, type: 3}
   forceDirection: {x: 0, y: 0}
 --- !u!114 &5549480404200983481
 MonoBehaviour:
@@ -670,6 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5549480404200983460}
+  _lastAttackDirection: 0
   _strength: 8
   _delay: 0.15
   OnBegin:

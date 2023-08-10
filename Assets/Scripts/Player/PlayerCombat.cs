@@ -15,6 +15,12 @@ public class PlayerCombat : MonoBehaviour
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    public enum LastAttackDirection
+    {
+        FORWARD, UP, DOWN
+    }
+    public LastAttackDirection lastAttackDirection;
+
 
 
     public float attackRange = 0.5f;
@@ -46,10 +52,10 @@ public class PlayerCombat : MonoBehaviour
             //}
             AttackUp();
             ComboAttack();
-            Debug.Log(currentCombo);
         //}
     }
 
+    // Used in animation events
     void Attack() {
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -85,6 +91,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack") && !isAttacking && (pm.LastOnGroundTime > 0))
         {
+            lastAttackDirection = LastAttackDirection.FORWARD;
             //Debug.Log($"Attacked Forward! Combo: {currentCombo}");
             SetIsAttacking(true);
             animator.SetTrigger("GroundAttack" + currentCombo);
@@ -95,6 +102,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack") && Input.GetButton("Up") && !isAttacking && (pm.LastOnGroundTime > 0))
         {
+            lastAttackDirection = LastAttackDirection.UP;
             //Debug.Log("Attacked Up!}");
             SetIsAttacking(true);
             animator.SetTrigger("GroundAttackUp");

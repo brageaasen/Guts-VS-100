@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject _upperBodyPrefab;
     [SerializeField] private GameObject _lowerBodyPrefab;
+    [SerializeField] private GameObject _weaponPrefab;
     public Vector2 forceDirection; // Set this vector to determine the direction in which the body parts should split.
 
     // Start is called before the first frame update
@@ -69,6 +70,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        if (isDead) // Check if the enemy is already dead
+            return;
         isDead = true;
 
         // Die animation
@@ -80,25 +83,23 @@ public class Enemy : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Dead");
         Destroy(GetComponent<EnemyAI>());
         Destroy(GetComponent<AIPath>());
+        Destroy(GetComponentInChildren<SpriteRenderer>());
         rb.gravityScale = 3;
-
-        // Disable the main sprite renderer (or any other visual components of the original enemy).
-        // Optionally, you can also play a death animation or sound effect here.
-
-        forceDirection = new(1.5f, 1.5f);
 
         // Spawn the upper body part.
         GameObject upperBody = Instantiate(_upperBodyPrefab, transform.position, Quaternion.identity);
-        Rigidbody2D upperRigidbody = upperBody.GetComponent<Rigidbody2D>();
-        upperRigidbody.AddForce(forceDirection, ForceMode2D.Impulse);
+        KnockbackFeedback upperKnockback = upperBody.GetComponent<KnockbackFeedback>();
+        upperKnockback.PlayFeedback(GameObject.FindGameObjectWithTag("Player"));
 
         // Spawn the lower body part.
         GameObject lowerBody = Instantiate(_lowerBodyPrefab, transform.position, Quaternion.identity);
-        Rigidbody2D lowerRigidbody = lowerBody.GetComponent<Rigidbody2D>();
-        lowerRigidbody.AddForce(-forceDirection, ForceMode2D.Impulse);
+        KnockbackFeedback lowerKnockback = lowerBody.GetComponent<KnockbackFeedback>();
+        lowerKnockback.PlayFeedback(GameObject.FindGameObjectWithTag("Player"));
 
-        // Destroy the original enemy GameObject.
-        Destroy(gameObject);
+        // Spawn the weapon.
+        GameObject weapon = Instantiate(_weaponPrefab, transform.position, Quaternion.identity);
+        KnockbackFeedback weaponKnockback = weapon.GetComponent<KnockbackFeedback>();
+        weaponKnockback.PlayFeedback(GameObject.FindGameObjectWithTag("Player"));
     }
 
 }
