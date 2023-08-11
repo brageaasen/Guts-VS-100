@@ -50,6 +50,7 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        animator.SetBool("IsGrounded", isGrounded);
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
@@ -74,7 +75,6 @@ public class EnemyAI : MonoBehaviour
         // Reached end of path
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            Debug.Log("Completed path");
             return;
         }
 

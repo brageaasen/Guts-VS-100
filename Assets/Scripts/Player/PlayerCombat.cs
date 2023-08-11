@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerCombat : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerMovementWithDash pm;
+
+    [SerializeField] private CinemachineVirtualCamera cinemachine;
 
 
     public float attackRate = 2f;
@@ -57,6 +60,9 @@ public class PlayerCombat : MonoBehaviour
 
     // Used in animation events
     void Attack() {
+        // Apply camera shake
+        CinemachineShake.Instance.ShakeCamera(5f, .1f);
+
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 

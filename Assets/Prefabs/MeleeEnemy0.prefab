@@ -599,6 +599,7 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   combat: {fileID: 5549480402607905618}
+  _headPrefab: {fileID: 7316521517374521969, guid: b12f440de5156a046a06d97c311c3a7b, type: 3}
   _upperBodyPrefab: {fileID: 179698461318078684, guid: 676c0a3e0654120439b2f93f3360049e, type: 3}
   _lowerBodyPrefab: {fileID: 4950048630752147935, guid: 626de4fb8953a3d47b4f9a133d44f865, type: 3}
   _weaponPrefab: {fileID: 179698461318078684, guid: 326d3bc9dca0d7c41a78dc6123ff43c4, type: 3}
@@ -674,6 +675,8 @@ MonoBehaviour:
   _lastAttackDirection: 0
   _strength: 8
   _delay: 0.15
+  maxForceMagnitude: 10
+  forceDuration: 0.5
   OnBegin:
     m_PersistentCalls:
       m_Calls:
