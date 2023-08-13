@@ -23,4 +23,11 @@ public class LevelChanger : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
     }
+
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Next level");
+        FadeToNextLevel();
+    }
 }

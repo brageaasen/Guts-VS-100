@@ -61,7 +61,7 @@ public class PlayerCombat : MonoBehaviour
     // Used in animation events
     void Attack() {
         // Apply camera shake
-        CinemachineShake.Instance.ShakeCamera(5f, .1f);
+        CinemachineShake.Instance.ShakeCamera(1f, .1f);
 
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
