@@ -18,7 +18,7 @@ public class Parralax : MonoBehaviour
         length = GetComponent<SpriteRenderer>().bounds.size.x;   
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (continueParralax)
         {
