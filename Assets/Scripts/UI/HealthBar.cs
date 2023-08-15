@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
     public Image fill;
 
     
-    
+    // If the player has full or no health, make the health-slider invisible
     void Update() {
         if (slider.value == slider.maxValue || slider.value == slider.minValue) {
             healthBarUIGroup.alpha = 0;

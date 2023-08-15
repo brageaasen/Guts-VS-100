@@ -7,15 +7,30 @@ public class GameOverScreen : MonoBehaviour
 
     public GameObject gameOverMenuUI;
 
-    // Reference
-    [SerializeField] private Player player;
-    
+    [SerializeField] private Timer timer;
+
+    private GameObject player;
+    private AudioManager audioManager;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (player.currentHealth <= 0)
+        if (player.GetComponent<Player>().isDead || (timer.GetTime() <= 0))
         {
+            player.GetComponent<PlayerMovementWithDash>().enabled = false;
+            player.GetComponent<PlayerCombat>().enabled = false;
             gameOverMenuUI.SetActive(true);
         }
+    }
+
+    public void PlaySelectSound()
+    {
+         audioManager.Play("Select");
     }
 }
