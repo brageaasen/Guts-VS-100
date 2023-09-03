@@ -1,2 +1,21 @@
-# Guts-VS-100
-Unity Game
+# Work in progress Unity2d Hack&Slash game! [Guts-VS-100]
+
+# Description
+In [Guts-VS-100], you have to fight against waves of enemies to survie the outnumbered fight.
+
+# Gameplay Screenshot:
+<div align="center">
+  <img src="/Assets/Sprites/gameplayScreenshot1.png" width="400px"</img>
+  <img src="/Assets/Sprites/gameplayScreenshot2.png" width="400px"</img>
+</div>
+
+# How to Play: (Game is not finished)
+Currently only available to download the project and play from your Unity application.
+- Download the project and run it in your unity editor (I would recommend itch.io).
+
+# Credits
+- Game Design and Development: [Lovfall]
+- Artwork and Visuals: [Lovfall]
+
+# Contact
+If you have any questions, feedback, or just want to connect, you can reach me at [brageaasen@hotmail.com].
