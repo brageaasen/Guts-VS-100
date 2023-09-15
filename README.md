@@ -5,7 +5,7 @@ In [Guts-VS-100], you have to fight against waves of enemies to survie the outnu
 
 # Gameplay Preview:
 <div align="center">
-  [![Preview, GutsVS100 Unity2D game]((https://img.youtube.com/vi/<(https://www.youtube.com/watch?v=-US9Ew3fAXo)>/0.jpg))](https://www.youtube.com/watch?v=-US9Ew3fAXo)
+  [![Preview, GutsVS100 Unity2D game](https://img.youtube.com/vi/-US9Ew3fAXo/maxresdefault.jpg)](https://www.youtube.com/watch?v=-US9Ew3fAXo)
 </div>
 
 # How to Play: (Game is not finished)
