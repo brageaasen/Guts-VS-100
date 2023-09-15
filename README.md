@@ -3,10 +3,9 @@
 # Description
 In [Guts-VS-100], you have to fight against waves of enemies to survie the outnumbered fight.
 
-# Gameplay Screenshot:
+# Gameplay Preview:
 <div align="center">
-  <img src="/Assets/Sprites/gameplayScreenshot1.png" width="400px"</img>
-  <img src="/Assets/Sprites/gameplayScreenshot2.png" width="400px"</img>
+  [![Preview, GutsVS100 Unity2D game]((https://img.youtube.com/vi/<(https://www.youtube.com/watch?v=-US9Ew3fAXo)>/0.jpg))](https://www.youtube.com/watch?v=-US9Ew3fAXo)
 </div>
 
 # How to Play: (Game is not finished)
