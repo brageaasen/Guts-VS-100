@@ -4,9 +4,11 @@
 In [Guts-VS-100], you have to fight against waves of enemies to survie the outnumbered fight.
 
 # Gameplay Preview:
-<div align="center">
-  [![Preview, GutsVS100 Unity2D game](https://img.youtube.com/vi/-US9Ew3fAXo/maxresdefault.jpg)](https://www.youtube.com/watch?v=-US9Ew3fAXo)
-</div>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=-US9Ew3fAXo">
+    <img src="https://img.youtube.com/vi/-US9Ew3fAXo/maxresdefault.jpg" alt="Preview, GutsVS100 Unity2D game">
+  </a>
+</p>
 
 # How to Play: (Game is not finished)
 Currently only available to download the project and play from your Unity application.
